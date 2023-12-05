@@ -1,0 +1,24 @@
+﻿<Apartments>
+	<Apartment>
+		<ApartmentId>1</ApartmentId>
+		<OwnerName>John Doe</OwnerName>
+		<Price>100000</Price>
+		<RegionName>Downtown</RegionName>
+	</Apartment>
+	<Apartment>
+		<ApartmentId>2</ApartmentId>
+		<OwnerName>Jane Smith</OwnerName>
+		<Price>85000</Price>
+		<RegionName>Suburb</RegionName>
+	</Apartment>
+	<Apartment>
+		<ApartmentId>3</ApartmentId>
+		<OwnerName>Bob Johnson</OwnerName>
+		<Price>120000</Price>
+		<RegionName>City Center</RegionName>
+	</Apartment>
+	<!-- Добавьте больше квартир по мере необходимости -->
+</Apartments>
+
+
+
