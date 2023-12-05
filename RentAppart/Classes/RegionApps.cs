@@ -9,6 +9,10 @@ namespace RentApparts.Classes
     public partial class RegionApps : Appartment
     {
         protected string Region { get; set; }
-
+        public string RegionName
+        {
+            get { return Region; }
+            set { Region = value; }
+        }
     }
 }
