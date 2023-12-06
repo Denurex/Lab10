@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 
 namespace RentApparts.Classes
@@ -37,5 +38,30 @@ namespace RentApparts.Classes
             base.DisplayInfo();
             Console.WriteLine($"Region: {Region}");
         }
+
+        public static List<RegionApps> ReadApartmentsFromXml(string filePath)
+        {
+            try
+            {
+                XDocument doc = XDocument.Load(filePath);
+
+                var apartments = from apt in doc.Descendants("Apartment")
+                                 select new RegionApps
+                                 {
+                                     ApartmentId = int.Parse(apt.Element("ApartmentId").Value),
+                                     OwnerName = apt.Element("OwnerName").Value,
+                                     Price = decimal.Parse(apt.Element("Price").Value),
+                                     RegionName = apt.Element("RegionName").Value
+                                 };
+
+                return apartments.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error reading XML file: {ex.Message}");
+                return new List<RegionApps>();
+            }
+        }
+
     }
 }
