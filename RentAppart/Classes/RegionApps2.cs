@@ -1,16 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
 
+public delegate void ViewCountHandler(int apartmentId);
+
 namespace RentApparts.Classes
 {
-
+    
     public partial class RegionApps : Appartment
     {
+        public event ViewCountHandler ViewCountUpdated;
+        private int viewCount;       
+        public int ViewCount
+        {
+            get { return viewCount; }
+            private set
+            {
+                viewCount = value;
+                ViewCountUpdated?.Invoke(ApartmentId);
+            }
+        }
+        public void IncrementViewCount()
+        {
+            ViewCount++;
+        }
+
         // Константа
         public const int MaxApartments = 100;
 
@@ -62,6 +81,67 @@ namespace RentApparts.Classes
                 return new List<RegionApps>();
             }
         }
+
+        public static void WriteApartmentsToXml(List<RegionApps> apartments, string filePath)
+        {
+            try
+            {
+
+                XDocument doc;
+
+                // Попробовать загрузить существующий XML-файл
+                if (File.Exists(filePath))
+                {
+                    doc = XDocument.Load(filePath);
+
+                    // Проверить, что корневой элемент существует и является "Apartments"
+                    if (doc.Root == null || doc.Root.Name != "Apartments")
+                    {
+                        Console.WriteLine("Invalid XML file format. Unable to append data.");
+                        return;
+                    }
+                }
+                else
+                {
+                    // Если файл не существует, создать новый документ
+                    doc = new XDocument(new XElement("Apartments"));
+                }
+
+                // Добавить новые данные
+                foreach (var apt in apartments)
+                {
+                    doc.Root.Add(new XElement("Apartment",
+                        new XElement("ApartmentId", apt.ApartmentId),
+                        new XElement("OwnerName", apt.OwnerName),
+                        new XElement("Price", apt.Price),
+                        new XElement("RegionName", apt.RegionName)
+                    ));
+                }
+
+                // Сохранить документ в файл
+                doc.Save(filePath);
+                Console.WriteLine($"Apartments data has been successfully written to {filePath}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error writing to XML file: {ex.Message}");
+            }
+        }
+        public static List<RegionApps> SearchByOwner(List<RegionApps> apartments, string ownerName)
+        {
+            return apartments.Where(apartment => apartment.OwnerName.Equals(ownerName, StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+
+        public static List<RegionApps> FilterByRegion(List<RegionApps> apartments, string region)
+        {
+            return apartments.Where(apartment => apartment.RegionName.Equals(region, StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+
+        public static List<RegionApps> FilterByPriceRange(List<RegionApps> apartments, decimal minPrice, decimal maxPrice)
+        {
+            return apartments.Where(apartment => apartment.Price >= minPrice && apartment.Price <= maxPrice).ToList();
+        }
+
 
     }
 }
