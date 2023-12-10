@@ -1,24 +1,99 @@
-﻿<Apartments>
-	<Apartment>
-		<ApartmentId>1</ApartmentId>
-		<OwnerName>John Doe</OwnerName>
-		<Price>100000</Price>
-		<RegionName>Downtown</RegionName>
-	</Apartment>
-	<Apartment>
-		<ApartmentId>2</ApartmentId>
-		<OwnerName>Jane Smith</OwnerName>
-		<Price>85000</Price>
-		<RegionName>Suburb</RegionName>
-	</Apartment>
-	<Apartment>
-		<ApartmentId>3</ApartmentId>
-		<OwnerName>Bob Johnson</OwnerName>
-		<Price>120000</Price>
-		<RegionName>City Center</RegionName>
-	</Apartment>
-	<!-- Добавьте больше квартир по мере необходимости -->
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Apartments>
+  <Apartment>
+    <ApartmentId>1</ApartmentId>
+    <OwnerName>John Doe</OwnerName>
+    <Price>120000</Price>
+    <RegionName>Downtown</RegionName>
+  </Apartment>
+  <Apartment>
+    <ApartmentId>2</ApartmentId>
+    <OwnerName>Jane Smith</OwnerName>
+    <Price>95000</Price>
+    <RegionName>Suburb</RegionName>
+  </Apartment>
+  <Apartment>
+    <ApartmentId>3</ApartmentId>
+    <OwnerName>Bob Johnson</OwnerName>
+    <Price>130000</Price>
+    <RegionName>City Center</RegionName>
+  </Apartment>
+  <Apartment>
+    <ApartmentId>4</ApartmentId>
+    <OwnerName>Mary Brown</OwnerName>
+    <Price>110000</Price>
+    <RegionName>Downtown</RegionName>
+  </Apartment>
+  <Apartment>
+    <ApartmentId>5</ApartmentId>
+    <OwnerName>David White</OwnerName>
+    <Price>90000</Price>
+    <RegionName>Suburb</RegionName>
+  </Apartment>
+  <Apartment>
+    <ApartmentId>6</ApartmentId>
+    <OwnerName>Emily Davis</OwnerName>
+    <Price>125000</Price>
+    <RegionName>City Center</RegionName>
+  </Apartment>
+  <Apartment>
+    <ApartmentId>7</ApartmentId>
+    <OwnerName>John Doe</OwnerName>
+    <Price>105000</Price>
+    <RegionName>Downtown</RegionName>
+  </Apartment>
+  <Apartment>
+    <ApartmentId>8</ApartmentId>
+    <OwnerName>Jane Smith</OwnerName>
+    <Price>115000</Price>
+    <RegionName>Suburb</RegionName>
+  </Apartment>
+  <Apartment>
+    <ApartmentId>9</ApartmentId>
+    <OwnerName>Bob Johnson</OwnerName>
+    <Price>90000</Price>
+    <RegionName>City Center</RegionName>
+  </Apartment>
+  <Apartment>
+    <ApartmentId>10</ApartmentId>
+    <OwnerName>Mary Brown</OwnerName>
+    <Price>120000</Price>
+    <RegionName>Downtown</RegionName>
+  </Apartment>
+  <Apartment>
+    <ApartmentId>11</ApartmentId>
+    <OwnerName>David White</OwnerName>
+    <Price>95000</Price>
+    <RegionName>Suburb</RegionName>
+  </Apartment>
+  <Apartment>
+    <ApartmentId>12</ApartmentId>
+    <OwnerName>Emily Davis</OwnerName>
+    <Price>130000</Price>
+    <RegionName>City Center</RegionName>
+  </Apartment>
+  <Apartment>
+    <ApartmentId>13</ApartmentId>
+    <OwnerName>John Doe</OwnerName>
+    <Price>110000</Price>
+    <RegionName>Downtown</RegionName>
+  </Apartment>
+  <Apartment>
+    <ApartmentId>14</ApartmentId>
+    <OwnerName>Jane Smith</OwnerName>
+    <Price>90000</Price>
+    <RegionName>Suburb</RegionName>
+  </Apartment>
+  <Apartment>
+    <ApartmentId>15</ApartmentId>
+    <OwnerName>Bob Johnson</OwnerName>
+    <Price>125000</Price>
+    <RegionName>City Center</RegionName>
+  </Apartment>
+  <Apartment>
+    <ApartmentId>16</ApartmentId>
+    <OwnerName>aaaa</OwnerName>
+    <Price>22332</Price>
+    <RegionName>sdfsfd</RegionName>
+  </Apartment>
 </Apartments>
-
-
-

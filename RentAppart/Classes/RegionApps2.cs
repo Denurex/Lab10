@@ -82,7 +82,7 @@ namespace RentApparts.Classes
             }
         }
 
-        public static void WriteApartmentsToXml(List<RegionApps> apartments, string filePath)
+        public static void WriteApartmentsToXml(RegionApps apartments, string filePath)
         {
             try
             {
@@ -108,15 +108,14 @@ namespace RentApparts.Classes
                 }
 
                 // Добавить новые данные
-                foreach (var apt in apartments)
-                {
-                    doc.Root.Add(new XElement("Apartment",
-                        new XElement("ApartmentId", apt.ApartmentId),
-                        new XElement("OwnerName", apt.OwnerName),
-                        new XElement("Price", apt.Price),
-                        new XElement("RegionName", apt.RegionName)
-                    ));
-                }
+
+                doc.Root.Add(new XElement("Apartment",
+                    new XElement("ApartmentId", apartments.ApartmentId),
+                    new XElement("OwnerName", apartments.OwnerName),
+                    new XElement("Price", apartments.Price),
+                    new XElement("RegionName", apartments.RegionName)
+                ));
+
 
                 // Сохранить документ в файл
                 doc.Save(filePath);
@@ -141,7 +140,5 @@ namespace RentApparts.Classes
         {
             return apartments.Where(apartment => apartment.Price >= minPrice && apartment.Price <= maxPrice).ToList();
         }
-
-
     }
 }
